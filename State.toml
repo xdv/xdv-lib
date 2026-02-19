@@ -1,0 +1,14 @@
+# XDV Lib Workspace Manifest
+
+[workspace]
+name = "xdv_lib"
+version = "0.1.0"
+description = "XDV runtime/boot helper library for Dust-based system components"
+
+[sector]
+name = "xdv_lib"
+path = "sector/xdv_lib"
+
+[dependencies]
+dustlib = { path = "../dustlib" }
+dustlib_k = { path = "../dustlib_k" }
