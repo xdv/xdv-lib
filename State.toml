@@ -11,4 +11,5 @@ path = "sector/xdv_lib"
 
 [dependencies]
 dustlib = { path = "../dustlib" }
-dustlib_k = { path = "../dustlib_k" }
+dustlib_k = { path = "../dustlib-k" }
+
