@@ -1,4 +1,7 @@
-// xdv-lib top-level forge.
+// File: lib.ds - This file is part of XDV
+// Copyright (c) 2026 Dust LLC, and Contributors
+// Description:
+//   xdv-lib top-level forge.
 
 forge XdvLib {
 
