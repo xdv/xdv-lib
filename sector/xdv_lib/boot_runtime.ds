@@ -10,17 +10,17 @@ forge XdvLibBootRuntime {
     const STATUS_OK: UInt32 = 0;
 
     proc K::xdv_boot_splash_wait_seconds(seconds: UInt32) -> UInt32 {
-        xdv_lib_delay_seconds(seconds);
-        return STATUS_OK;
+        let status = xdv_lib_delay_seconds(seconds);
+        return status;
     }
 
     proc K::xdv_boot_console_clear() -> UInt32 {
-        xdv_lib_console_clear();
-        return STATUS_OK;
+        let status = xdv_lib_console_clear();
+        return status;
     }
 
     proc K::xdv_boot_kernel_handoff() -> UInt32 {
-        xdv_lib_kernel_transfer();
-        return STATUS_OK;
+        let status = xdv_lib_kernel_transfer();
+        return status;
     }
 }

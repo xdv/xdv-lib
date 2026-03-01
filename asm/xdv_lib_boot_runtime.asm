@@ -89,6 +89,7 @@ xdv_boot_kernel_handoff:
 
     ; Sector count and destination image window.
     mov r13d, dword [abs BOOTREC_KERNEL_SECTORS_OFF]
+    mov r15d, r13d
     test r13d, r13d
     jz .load_fail
     mov r14, KERNEL_IMAGE_BASE
@@ -107,6 +108,14 @@ xdv_boot_kernel_handoff:
 
 .kernel_ready:
     mov eax, dword [abs BOOTREC_KERNEL_ENTRY_OFF]
+    test eax, eax
+    jz .load_fail
+
+    mov ecx, r15d
+    imul ecx, 512
+    cmp eax, ecx
+    jae .load_fail
+
     add rax, KERNEL_IMAGE_BASE
     mov r11, rax
     pop r15

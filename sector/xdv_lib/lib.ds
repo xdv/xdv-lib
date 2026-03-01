@@ -13,13 +13,20 @@ forge XdvLib {
     }
 
     proc K::xdv_boot_prepare(seconds: UInt32) -> UInt32 {
-        xdv_boot_splash_wait_seconds(seconds);
-        xdv_boot_console_clear();
-        return 0;
+        let wait = xdv_boot_splash_wait_seconds(seconds);
+        if wait == 0 {
+            let clear = xdv_boot_console_clear();
+            if clear == 0 {
+                return 0;
+            } else {
+                return clear;
+            }
+        } else {
+            return wait;
+        }
     }
 
     proc K::xdv_boot_transfer_kernel() -> UInt32 {
-        xdv_boot_kernel_handoff();
-        return 0;
+        return xdv_boot_kernel_handoff();
     }
 }
